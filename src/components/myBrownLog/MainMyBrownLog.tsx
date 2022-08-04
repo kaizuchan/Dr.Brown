@@ -10,6 +10,7 @@ import CardContent from '@mui/material/CardContent';
 import Line from "./graphLine";
 import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
+import MyBrownScore from './MyBrownScore';
 
 const classes = {
   search:css`
@@ -50,9 +51,6 @@ const classes = {
     text-align: center;
     margin: 10px 0 0 0;
   `,
-  button:css`
-    margin: 0 0 0 auto;
-  `
 }
 
 
@@ -95,7 +93,7 @@ const MainMyBrownLog = () => {
               <div css={classes.scoreData}>80点</div>
 
               <CardActions>
-                <Button size="small" css={classes.button}>もっと詳しく見る</Button>
+                <MyBrownScore />
               </CardActions>
           </Card>
 
@@ -106,7 +104,7 @@ const MainMyBrownLog = () => {
               <div css={classes.scoreData}>80点</div>
 
               <CardActions>
-                <Button size="small" css={classes.button}>もっと詳しく見る</Button>
+                <MyBrownScore />
               </CardActions>
           </Card>
 
@@ -117,7 +115,7 @@ const MainMyBrownLog = () => {
               <div css={classes.scoreData}>80点</div>
 
               <CardActions>
-                <Button size="small" css={classes.button}>もっと詳しく見る</Button>
+                <MyBrownScore />
               </CardActions>
           </Card>
           
@@ -128,7 +126,7 @@ const MainMyBrownLog = () => {
               <div css={classes.scoreData}>80点</div>
 
               <CardActions>
-                <Button size="small" css={classes.button}>もっと詳しく見る</Button>
+                <MyBrownScore />
               </CardActions>
           </Card>
 
