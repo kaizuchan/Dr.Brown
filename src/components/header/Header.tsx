@@ -151,7 +151,6 @@ const TopContent: NextPage<Props> = ({ name }) => {
     }
   }, []);
 
-  console.log(user);
   return (
     <header css={classes.header}>
       <div css={classes.headerCover}></div>
