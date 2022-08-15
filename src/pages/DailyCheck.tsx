@@ -1,5 +1,6 @@
 import { css } from "@emotion/react";
 import { NextPage } from "next";
+import MainDailyCheck from "../components/DailyCheck/MainDailyCheck";
 import Layout from "./Layout/Layout";
 
 const pageProps = {
@@ -17,7 +18,9 @@ const DailyCheck: NextPage = () => {
       desc={pageProps.desc}
       bgDesign={pageProps.bgImg}
     >
-      enter
+
+      <MainDailyCheck />
+
     </Layout>
   );
 };
