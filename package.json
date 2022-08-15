@@ -18,6 +18,8 @@
     "@types/chart.js": "^2.9.37",
     "axios": "^0.27.2",
     "chart.js": "2.9.3",
+    "firebase": "^9.9.2",
+    "jotai": "^1.7.8",
     "next": "12.2.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",

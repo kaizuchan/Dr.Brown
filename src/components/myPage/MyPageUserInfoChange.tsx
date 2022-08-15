@@ -43,27 +43,9 @@ export default function FormDialog() {
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>ユーザー情報変更</DialogTitle>
         <DialogContent>
-        <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="ユーザー名"
-            type="text"
-            fullWidth
-            variant="standard"
-          />
-          
-          <TextField
-          autoFocus
-          margin="dense"
-          id="name"
-          label="メールアドレス"
-          type="email"
-          fullWidth
-          variant="standard"
-        />
         
         {/* 生年月日入力をimport */}
+        <FormLabel>生年月日</FormLabel>
         <MyPageUserInfoChangeBirth />
 
         {/* 性別 */}

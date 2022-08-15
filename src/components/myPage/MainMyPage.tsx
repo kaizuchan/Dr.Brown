@@ -23,6 +23,8 @@ import WomanIcon from '@mui/icons-material/Woman';
 import TagFacesIcon from '@mui/icons-material/TagFaces';
 import PregnantWomanIcon from '@mui/icons-material/PregnantWoman';
 import BabyChangingStationIcon from '@mui/icons-material/BabyChangingStation';
+import { useAtom } from "jotai";
+import { googleUserAtom } from "../utils/atoms";
 
 
 const classes ={
@@ -91,13 +93,6 @@ interface TabPanelProps {
     return { columnName, valueName };
   }
 
-  const rows = [
-    createData('ユーザー名', 'おっぴー'),
-    createData('メールアドレス', 'xxxx@xx.xx.xx'),
-    createData('生年月日', 'xx/xx/xx'),
-    createData('性別', '男'),
-    createData(<MyPageUserInfoChange />,<Link href="./MyPagePassChange"><Button variant="outlined">パスワード変更</Button></Link>)
-  ];
 
   function TabPanel(props: TabPanelProps) {
     const { children, value, index, ...other } = props;
@@ -128,6 +123,16 @@ interface TabPanelProps {
   
   export default function BasicTabs() {
     const [value, setValue] = React.useState(0);
+    const [user] = useAtom<object | null>(googleUserAtom);
+  
+    const rows = [
+      createData('ユーザーID', user.uid),
+      createData('ユーザー名', user.displayName),
+      createData('メールアドレス', user.email),
+      createData('生年月日', "未登録"),
+      createData('性別', "未登録"),
+      createData("",<MyPageUserInfoChange />)
+    ];
   
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
       setValue(newValue);
