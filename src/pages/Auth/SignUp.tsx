@@ -15,9 +15,11 @@ const classes = {
   form: css`
     display: flex;
     flex-direction: column;
+    align-items: center;
   `,
   input: css`
-    width: 350px;
+    /* width: 350px; */
+    width: 200px;
     height: 45px;
     font-size: 16px;
     background-color: #fff;

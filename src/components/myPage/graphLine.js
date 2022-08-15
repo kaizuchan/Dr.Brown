@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import Chart from "chart.js/auto";
+import Chart from "chart.js";
 
 export default function App() {
   const canvasEl = useRef(null);

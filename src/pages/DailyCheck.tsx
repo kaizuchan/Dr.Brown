@@ -18,9 +18,9 @@ const DailyCheck: NextPage = () => {
       desc={pageProps.desc}
       bgDesign={pageProps.bgImg}
     >
-
-      <MainDailyCheck />
-
+      <div css>
+        <MainDailyCheck />
+      </div>
     </Layout>
   );
 };

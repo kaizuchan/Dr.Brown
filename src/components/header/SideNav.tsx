@@ -6,7 +6,7 @@ import NavList from "./NavList";
 const menu = {
   home: {
     name: "HOME",
-    link: "/Home",
+    link: "/",
     icon: "url(./icon/home.jpg)",
   },
   photo: {
@@ -19,20 +19,10 @@ const menu = {
     link: "/DailyCheck",
     icon: "url(./icon/monshin2.jpg)",
   },
-  healthCheck: {
-    name: "健康診断",
-    link: "/HealthCheck",
-    icon: "url(./icon/monshin2.jpg)",
-  },
   past: {
     name: "過去の診断",
     link: "/MyBrownLog",
     icon: "url(./icon/past2.jpg)",
-  },
-  kame: {
-    name: "🐢カメ🐢",
-    link: "/SelfCheck",
-    icon: "url(./icon/monshin2.jpg)",
   },
 };
 
@@ -67,7 +57,7 @@ const classes = {
 const SideNav: NextPage = () => {
   return (
     <>
-      <Link href={"/Home"}>
+      <Link href={"/"}>
         <div css={classes.logo}></div>
       </Link>
       <nav css={classes.nav}>
@@ -88,19 +78,9 @@ const SideNav: NextPage = () => {
             icon={menu.dailyCheck.icon}
           />
           <NavList
-            name={menu.healthCheck.name}
-            link={menu.healthCheck.link}
-            icon={menu.healthCheck.icon}
-          />
-          <NavList
             name={menu.past.name}
             link={menu.past.link}
             icon={menu.past.icon}
-          />
-          <NavList
-            name={menu.kame.name}
-            link={menu.kame.link}
-            icon={menu.kame.icon}
           />
         </ul>
       </nav>

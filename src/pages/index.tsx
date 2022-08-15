@@ -5,10 +5,9 @@ import useSWR from "swr";
 import Link from "next/link";
 import Header from "../components/header/Header";
 import { css } from "@emotion/react";
-import NavList from "../components/header/NavList";
 
 
-const siteName = "トップ";
+const siteName = "HOME";
 const desc = "トップページ";
 const bgImg = "url('./bgImg/homepink.jpg')"
 
@@ -50,10 +49,6 @@ const Home: NextPage = () => {
   
   return (
     <Layout siteName={siteName} desc={desc} bgDesign={bgImg}>
-          <div css={classes.flex}>
-            <div css={classes.mobileChange}>
-            </div>
-          </div>
     </Layout>
   );
 };
