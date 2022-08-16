@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from db import metadata, database, engine
-import users, auth
+import users
 
 metadata.create_all(engine)
 
@@ -29,5 +29,4 @@ async def shutdown():
     await database.disconnect()
 
 app.include_router(users.router)
-app.include_router(auth.router)
 

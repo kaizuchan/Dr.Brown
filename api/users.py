@@ -1,7 +1,7 @@
 from typing import List
-from token_generation import get_current_user
-from fastapi import APIRouter, HTTPException, status, Depends
-from schemas import UserSchemaIn, UserSchema, LoginSchema
+import uuid
+from fastapi import APIRouter, HTTPException, status
+from schemas import UserSchemaIn, UserSchema
 from db import database, User
 from passlib.hash import pbkdf2_sha256
 
@@ -30,13 +30,10 @@ async def index():
 
 @router.post('/users', status_code=status.HTTP_201_CREATED, response_model=UserSchema)
 async def create(user: UserSchemaIn):
-    hashed_password = pbkdf2_sha256.hash(user.password)
     query = User.insert().values(
-        name = user.name,
-        email = user.email,
+        uuid = user.uuid,
         birthday = user.birthday,
         sex = user.sex,
-        password = hashed_password,
     )
     last_record_id = await database.execute(query)
     return {**user.dict(), "id": last_record_id}
@@ -48,21 +45,21 @@ async def index():
     return await database.fetch_all(query=query)
 
     
-@router.get('/users/{id}/', response_model=UserSchema)
-async def read(id: int):
-    query = User.select().where(id == User.c.id)
+@router.get('/users/{uuid}/', response_model=UserSchema)
+async def read(uuid: int):
+    query = User.select().where(uuid == User.c.uuid)
     myuser = await database.fetch_one(query)
 
     if not myuser:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, details="読み取りに失敗しました")
     return {**myuser}
-    
 
-@router.put('/users/{id}/', response_model=UserSchema)
-async def updata(id: int, user: UserSchemaIn):
-    query = User.update().where(User.c.id == id).values(title=user.name)
+
+@router.put('/users/{uuid}/', response_model=UserSchema)
+async def updata(uuid: int, user: UserSchemaIn):
+    query = User.update().where(User.c.uuid == uuid).values(title=user.name)
     await database.execute(query)
-    return {**user.dict(), "id": id}
+    return {**user.dict(), "uuid": uuid}
 
 
 @router.delete('/users/{id}/', status_code=status.HTTP_204_NO_CONTENT)
