@@ -48,6 +48,7 @@ const classes = {
         margin-bottom: 20px;
     `,
     buttonBox:css`
+        margin-top: 30px;
         justify-content: space-around;
     `,
     button:css`
@@ -57,12 +58,22 @@ const classes = {
 
 
 const MainDailyCheck = () => {
+    const formatDate = (dt: any) => {
+        var y = dt.getFullYear();
+        var m = ('00' + (dt.getMonth()+1)).slice(-2);
+        var d = ('00' + dt.getDate()).slice(-2);
+        return (y + '-' + m + '-' + d);
+      }
+    
+
     return (
-        <Card css={classes.card} sx={{ width: "100%" }}>
+        <div style={{padding: "0 10%"}}>
+
+        <Card css={classes.card} sx={{ width: "100%" ,padding: "5% 10% 10% 10%"}}>
 
             <CardContent>
                 <Typography sx={{ fontSize: 18 }} color="text.secondary" gutterBottom>
-                    2022/xx/xx
+                    {formatDate(new Date())}
                 </Typography>
             </CardContent>
 
@@ -73,14 +84,15 @@ const MainDailyCheck = () => {
                 <TextField css={classes.TextField} id="input-with-sx" label="体重(kg)" variant="standard" />
             </Box>
 
-            <Box css={classes.textFieldBox} sx={{ display: 'flex', alignItems: 'flex-end' }}>
+            <Box css={classes.textFieldBox} sx={{ display: 'flex', alignItems: 'flex-end'}}>
                 <DeviceThermostatIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
                 <TextField css={classes.TextField} id="input-with-sx" label="体温(度)" variant="standard" />
             </Box>
 
-            <FormControl css={classes.formControl}>
+            <FormControl css={classes.formControl} sx={{mt: 10}}>
                 <FormLabel css={classes.labelTitle} id="demo-form-control-label-placement"><RiceBowlIcon />食事量</FormLabel>
                 <RadioGroup
+                    sx={{width: "60%", margin: "10px auto"}}
                     row
                     aria-labelledby="demo-form-control-label-placement"
                     name="position"
@@ -109,6 +121,7 @@ const MainDailyCheck = () => {
 
                 <FormLabel css={classes.labelTitle} id="demo-form-control-label-placement"><TagFacesIcon />体調</FormLabel>
                 <RadioGroup
+                    sx={{width: "60%", margin: "10px auto"}}
                     row
                     aria-labelledby="demo-form-control-label-placement"
                     name="position"
@@ -137,6 +150,7 @@ const MainDailyCheck = () => {
 
                 <FormLabel css={classes.labelTitle} id="demo-form-control-label-placement"><PregnantWomanIcon />お腹の調子</FormLabel>
                 <RadioGroup
+                    sx={{width: "60%", margin: "10px auto"}}
                     row
                     aria-labelledby="demo-form-control-label-placement"
                     name="position"
@@ -164,6 +178,7 @@ const MainDailyCheck = () => {
                 </RadioGroup>
                 <FormLabel css={classes.labelTitle} id="demo-form-control-label-placement"><CleanHandsIcon />肌の調子</FormLabel>
                 <RadioGroup
+                    sx={{width: "60%", margin: "10px auto"}}
                     row
                     aria-labelledby="demo-form-control-label-placement"
                     name="position"
@@ -191,6 +206,7 @@ const MainDailyCheck = () => {
                 </RadioGroup>
                 <FormLabel css={classes.labelTitle} id="demo-form-control-label-placement"><WomanIcon />生理</FormLabel>
                 <RadioGroup
+                    sx={{width: "60%", margin: "10px auto"}}
                     row
                     aria-labelledby="demo-form-control-label-placement"
                     name="position"
@@ -212,6 +228,7 @@ const MainDailyCheck = () => {
                 </RadioGroup>
                 <FormLabel css={classes.labelTitle} id="demo-form-control-label-placement"><BabyChangingStationIcon />便</FormLabel>
                 <RadioGroup
+                    sx={{width: "60%", margin: "10px auto"}}
                     row
                     aria-labelledby="demo-form-control-label-placement"
                     name="position"
@@ -244,6 +261,7 @@ const MainDailyCheck = () => {
                 <Button css={classes.button} variant="contained">保存</Button>
             </CardActions>
         </Card>
+        </div>
     );
 }
 

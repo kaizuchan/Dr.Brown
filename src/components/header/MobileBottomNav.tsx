@@ -35,6 +35,7 @@ const classes= {
       @media(max-width: 920px){
         display: flex;
         flex-direction: column;
+        background-position: center;
         align-items: center;
         margin: 0 auto;
         height: 50px;
@@ -50,6 +51,7 @@ const classes= {
         height: 8vh;
         width: 8vw;
         background-image: url("icon/home.jpg");
+        background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
         display: block;
@@ -62,23 +64,16 @@ const classes= {
         width: 8vw;
         background-image: url("icon/camera2.jpg");
         background-repeat: no-repeat;
+        background-position: center;
         background-size: contain;
       }
-    `,
-    selfImg:css`
-    @media(max-width: 920px){
-        height: 8vh;
-        width: 8vw;
-        background-image: url("icon/monshin2.jpg");
-        background-repeat: no-repeat;
-        background-size: contain;
-    }
     `,
     pastImg:css`
     @media(max-width: 920px){
         height: 8vh;
         width: 8vw;
         background-image: url("icon/past2.jpg");
+        background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
     }
@@ -92,10 +87,9 @@ const MobileBottomNav = () => {
         
           <div css={classes.mobileNav}>
             <ul css={classes.mobileNavUl}>
-              <Link href="./"><li css={classes.mobileNavLi}><div css={classes.homeImg}></div><span css={classes.mobileNavSpan}>HOME</span></li></Link>
-              <Link href="./BrownCheck"><li css={classes.mobileNavLi}><div css={classes.cameraImg}></div><span css={classes.mobileNavSpan}>撮影する</span></li></Link>
-              <Link href="./SelfCheck"><li css={classes.mobileNavLi}><div css={classes.selfImg}></div><span css={classes.mobileNavSpan}>問診する</span></li></Link>
-              <Link href="./MyBorwnLog"><li css={classes.mobileNavLi}><div css={classes.pastImg}></div><span css={classes.mobileNavSpan}>過去の診断</span></li></Link>
+              <Link href="./" ><li css={classes.mobileNavLi} style={{cursor: "pointer"}}><div css={classes.homeImg}></div><span css={classes.mobileNavSpan}>HOME</span></li></Link>
+              <Link href="./BrownCheck" ><li css={classes.mobileNavLi} style={{cursor: "pointer"}}><div css={classes.cameraImg}></div><span css={classes.mobileNavSpan}>撮影する</span></li></Link>
+              <Link href="./MyBrownLog" ><li css={classes.mobileNavLi} style={{cursor: "pointer"}}><div css={classes.pastImg}></div><span css={classes.mobileNavSpan}>過去の診断</span></li></Link>
             </ul>
           </div>
 

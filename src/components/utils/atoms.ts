@@ -1,6 +1,6 @@
 import { atom } from "jotai";
 
-export const googleUserAtom = atom({});
+export const googleUserAtom = atom(null);
 export const userAtom = atom({
     uuid: null,
     name: null,

@@ -17,11 +17,9 @@ const SignIn: NextPage<Props> = ({ closeModal }) => {
     const { providerData } = user;
 
     localStorage.setItem("user", JSON.stringify(providerData));
-    //   router.push("/");
     router.reload();
   };
 
-  // 表示したモーダルの外をクリックで、モーダルを閉じる
   const closeModalOutSide = (e: any, closeModal: Function) => {
     if (e.target === e.currentTarget) closeModal(false);
   };

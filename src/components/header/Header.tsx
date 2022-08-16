@@ -3,7 +3,6 @@ import Link from "next/link";
 import { css } from "@emotion/react";
 import PersonIcon from "@mui/icons-material/Person";
 import MobileBottomNav from "./MobileBottomNav";
-import HamburgerMenu from "./HamburgerMenu";
 import { useEffect, useState } from "react";
 import { useAtom } from "jotai";
 import { fetchUser } from "../utils/firebase/fetchUser";
@@ -18,34 +17,22 @@ export type Props = {
 const classes = {
   // ヘッダー
   header: css`
+  background-color: #5899c1;
     color: #eee;
     height: 10vh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: fixed;
+    padding: 0 60px;
+    position: relative;
     z-index: 10;
-    @media (max-width: 1000px) {
-      width: 100vw;
-    }
-  `,
-  headerCover: css`
-    height: 100%;
-    width: 100%;
-    background-color: #5899c1;
-    opacity: 0.95;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: -10;
     @media (max-width: 1000px) {
       width: 100vw;
     }
   `,
   h1: css`
     font-size: 2.5rem;
-    margin-left: 10%;
     letter-spacing: 1.8px;
     @media (max-width: 780px) {
       font-size: 2rem;
@@ -56,12 +43,10 @@ const classes = {
   `,
   myPage: css`
     text-align: center;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     position: relative;
-    @media (max-width: 481px) {
-      display: none;
-    }
+    z-index: 100;
   `,
   accountIcon: css`
     display: flex;
@@ -74,12 +59,6 @@ const classes = {
   `,
   logout: css`
     padding: 0 10px;
-  `,
-  MenuIcon: css`
-    @media (min-width: 480px) {
-      display: none;
-    }
-    margin: 0 0 0 30%;
   `,
   userMenu: css`
     display: flex;
@@ -134,6 +113,12 @@ const classes = {
       }
     }
   `,
+  bottomNav: css`
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  `,
 };
 
 const TopContent: NextPage<Props> = ({ name }) => {
@@ -150,20 +135,22 @@ const TopContent: NextPage<Props> = ({ name }) => {
       setUser(null);
     }
   }, []);
-
+  console.log(user);
   return (
     <header css={classes.header}>
-      <div css={classes.headerCover}></div>
       <h1 css={classes.h1}>{name}</h1>
 
       {user != null ? (
         <div css={classes.myPage}>
           <Link href="./MyPage">
-            <div css={classes.accountIcon}>
+            <div css={classes.accountIcon} style={{ cursor: "pointer" }}>
               <PersonIcon style={{ fontSize: "50px", color: "#CDE9FE" }} />
             </div>
           </Link>
-          <div css={classes.userMenu}  onClick={() => setBurgerOpen(!burgerOpen)}>
+          <div
+            css={classes.userMenu}
+            onClick={() => setBurgerOpen(!burgerOpen)}
+          >
             <img css={classes.userImg} src={user.photoURL} />
           </div>
         </div>
@@ -176,19 +163,16 @@ const TopContent: NextPage<Props> = ({ name }) => {
             }}
           >
             <p>Sign in</p>
-            
           </button>
         </div>
       )}
 
       {openModal && <SignIn closeModal={setOpenModal} />}
       {burgerOpen && <SignOut closeModal={setBurgerOpen} />}
-      
-      <div css={classes.MenuIcon}>
-        <HamburgerMenu />
-      </div>
 
-      <MobileBottomNav />
+      <div css={classes.bottomNav}>
+        <MobileBottomNav />
+      </div>
     </header>
   );
 };

@@ -23,6 +23,7 @@ const classes = {
   `,
   box:css`
   opacity: 0.9;
+  padding: 10%;
   `,
   table:css`
     margin-top:20px;
@@ -57,19 +58,19 @@ const classes = {
 const MainMyBrownLog = () => {
   return (
 
-    <div>
+    <>
       
       <Card css={classes.box}>
         <CardContent>
           
           <Paper
             component="form"
-            sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', }}
+            sx={{ p: '2px 4px', display: 'flex', alignItems: 'center' }}
             css={classes.search}
           >
 
             <InputBase
-              sx={{ ml: 1, flex: 1, color: 'black' }}
+              sx={{ ml: 2, flex: 1, color: 'black' }}
               placeholder="日付を入力してください"
               inputProps={{ 'aria-label': 'search google maps' }} />
 
@@ -83,7 +84,7 @@ const MainMyBrownLog = () => {
             {/* 折れ線グラフ import */}
           <Line />
 
-          <h2 css={classes.h2}>過去の診断結果一覧</h2>
+          <h2 css={classes.h2} style={{padding: "25px 0 15px 0"}}>過去の診断結果一覧</h2>
 
           <Card sx={{ width: "30%" }} css={classes.score}>
               
@@ -133,7 +134,7 @@ const MainMyBrownLog = () => {
       </Card>
 
       
-    </div>
+    </>
   
   );
 }

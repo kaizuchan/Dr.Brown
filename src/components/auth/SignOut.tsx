@@ -30,19 +30,14 @@ const SignOut: NextPage<Props> = ({ closeModal }) => {
       });
   };
   return (
-    <div
-      css={classes.Background}
-      onClick={(e) => closeModalOutSide(e, closeModal)}
-    >
-      <div css={classes.Container}>
-        <ul>
-          <li>
-            <button css={classes.SignOutButton} onClick={signOutMethod}>
-              ログアウト
-            </button>
-          </li>
-        </ul>
-      </div>
+    <div css={classes.Container}>
+      <ul>
+        <li>
+          <button css={classes.SignOutButton} onClick={signOutMethod}>
+            ログアウト
+          </button>
+        </li>
+      </ul>
     </div>
   );
 };
@@ -55,15 +50,6 @@ const classes = {
     font-weight: bold;
     color: #619ec4;
   `,
-  Background: css`
-    position: fixed;
-    right: 50px;
-    top: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-  `,
   Container: css`
     min-width: 100px;
     height: 35px;
@@ -72,8 +58,10 @@ const classes = {
     display: flex;
     align-items: center;
     flex-direction: column;
-    position: relative;
-    box-shadow: #777 0 2px 4px ;
+    position: absolute;
+    right: 20px;
+    top: 65px;
+    box-shadow: #777 0 2px 4px;
     z-index: 20;
   `,
 };

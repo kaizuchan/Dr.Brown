@@ -1,6 +1,8 @@
 import { css } from "@emotion/react";
+import { useAtom } from "jotai";
 import { NextPage } from "next";
 import Link from "next/link";
+import { googleUserAtom } from "../utils/atoms";
 import NavList from "./NavList";
 
 const menu = {
@@ -55,6 +57,8 @@ const classes = {
 };
 
 const SideNav: NextPage = () => {
+  const user = useAtom(googleUserAtom);
+  console.log(user)
   return (
     <>
       <Link href={"/"}>
@@ -72,20 +76,25 @@ const SideNav: NextPage = () => {
             link={menu.photo.link}
             icon={menu.photo.icon}
           />
-          <NavList
-            name={menu.dailyCheck.name}
-            link={menu.dailyCheck.link}
-            icon={menu.dailyCheck.icon}
-          />
-          <NavList
-            name={menu.past.name}
-            link={menu.past.link}
-            icon={menu.past.icon}
-          />
+          {user[0] != null ? (
+            <>
+              <NavList
+                name={menu.dailyCheck.name}
+                link={menu.dailyCheck.link}
+                icon={menu.dailyCheck.icon}
+              />
+              <NavList
+                name={menu.past.name}
+                link={menu.past.link}
+                icon={menu.past.icon}
+              />
+            </>
+          ) : (
+            ""
+          )}
         </ul>
       </nav>
 
-      
       <footer css={classes.footer}>
         <p>&copy; 2022 Dr.Brown All Rights Reserved.</p>
       </footer>

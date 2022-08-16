@@ -16,6 +16,7 @@ const classes = {
   layout: css`
     display: flex;
     width: 100%;
+    overflow-x: hidden;
     /* min-height: 100vh;
     background-size: cover;
     background-position: 0% 20%; */
@@ -53,12 +54,9 @@ const classes = {
       width: 100vw;
     }
   `,
-  headerBase: css`
-  color: #eee;
-  height: 10vh;
-  width: 100%;
-  position: relative;
-  `,
+  wrap: css`
+  padding: 3% 10%;
+  `
 };
 
 const Layout: NextPage<Props> = ({ siteName, desc, bgDesign, children }) => {
@@ -83,20 +81,18 @@ const Layout: NextPage<Props> = ({ siteName, desc, bgDesign, children }) => {
       >
         <div css={classes.sideNavBase}></div>
         <div css={classes.sideNav}>
-          <SideNav></SideNav>
+          <SideNav />
         </div>
         <div css={classes.container}>
           <Headers name={siteName} />
-          <div css={classes.headerBase}></div>
           <main
             css={classes.content}
             style={{ backgroundImage: `${bgDesign}` }}
           >
-            {children}
+            <div css={classes.wrap}>{children}</div>
           </main>
         </div>
       </div>
-
     </>
   );
 };

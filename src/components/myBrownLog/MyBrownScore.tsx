@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { css } from "@emotion/react";
-import Link from "next/link";
 
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
