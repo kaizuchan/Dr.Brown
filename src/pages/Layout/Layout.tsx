@@ -44,6 +44,7 @@ const classes = {
     height: 100%;
   `,
   content: css`
+    margin-top: 10vh;
     min-height: 90vh;
     width: 100%;
     background-size: cover;

@@ -58,7 +58,6 @@ const classes = {
 
 const SideNav: NextPage = () => {
   const user = useAtom(googleUserAtom);
-  console.log(user)
   return (
     <>
       <Link href={"/"}>

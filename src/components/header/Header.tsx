@@ -20,13 +20,14 @@ const classes = {
   background-color: #5899c1;
     color: #eee;
     height: 10vh;
-    width: 100%;
+    width: calc(100% - 300px);
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 60px;
-    position: relative;
+    position: fixed;
     z-index: 10;
+
     @media (max-width: 1000px) {
       width: 100vw;
     }
@@ -88,6 +89,7 @@ const classes = {
     border: none;
     padding: 3px 10px;
     border-radius: 5px;
+    padding: 7px 15px;
     box-shadow: #777 0px 1.8px 3px 0px;
     transition: all ease-in 0.1s;
     background-color: #eee;
@@ -135,7 +137,9 @@ const TopContent: NextPage<Props> = ({ name }) => {
       setUser(null);
     }
   }, []);
-  console.log(user);
+
+  // console.log(user);
+  
   return (
     <header css={classes.header}>
       <h1 css={classes.h1}>{name}</h1>

@@ -43,7 +43,7 @@ const SignIn: NextPage<Props> = ({ closeModal }) => {
           </p>
           <button css={classes.LoginWithButton} onClick={SignIn}>
             <img src="/images/google_icon.svg" alt="" width={30} height={30} />
-            <span>Login with Google</span>
+            <span style={{fontWeight: "bold", letterSpacing: .7}}>Login with Google</span>
           </button>
         </div>
       </div>
@@ -137,7 +137,7 @@ const classes = {
     }
 
     &:hover {
-      background-color: #e7f5f0;
+      background-color: #e6f5fd;
     }
 
     &:active {

@@ -67,7 +67,7 @@ const MainDailyCheck = () => {
     
 
     return (
-        <div style={{padding: "0 10%"}}>
+        <div style={{padding: "0 5%"}}>
 
         <Card css={classes.card} sx={{ width: "100%" ,padding: "5% 10% 10% 10%"}}>
 
@@ -79,12 +79,12 @@ const MainDailyCheck = () => {
 
             
             
-            <Box css={classes.textFieldBox} sx={{ display: 'flex', alignItems: 'flex-end' }}>
+            <Box css={classes.textFieldBox} sx={{ display: 'flex', alignItems: 'flex-end', width: "50%", ml:3 }}>
                 <MonitorWeightIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
                 <TextField css={classes.TextField} id="input-with-sx" label="体重(kg)" variant="standard" />
             </Box>
 
-            <Box css={classes.textFieldBox} sx={{ display: 'flex', alignItems: 'flex-end'}}>
+            <Box css={classes.textFieldBox} sx={{ display: 'flex', alignItems: 'flex-end', width: "50%", ml:3}}>
                 <DeviceThermostatIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
                 <TextField css={classes.TextField} id="input-with-sx" label="体温(度)" variant="standard" />
             </Box>
