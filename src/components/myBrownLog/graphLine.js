@@ -26,16 +26,16 @@ export default function App() {
     gradient.addColorStop(0.65, colors.purple.quarter);
     gradient.addColorStop(1, colors.purple.zero);
 
-    const weight = [80,68,22,34,22,45,11];
+    const weight = [95,68,75,80,60,58,65];
 
     const labels = [
-      "日付",
-      "日付",
-      "日付",
-      "日付",
-      "日付",
-      "日付",
-      "日付",
+      "8/21",
+      "8/22",
+      "8/23",
+      "8/24",
+      "8/25",
+      "8/26",
+      "8/27",
     ];
     const data = {
       labels: labels,

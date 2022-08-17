@@ -45,9 +45,10 @@ const classes = {
   `,
   content: css`
     margin-top: 10vh;
-    min-height: 90vh;
+    height: 90%;
     width: 100%;
     background-size: cover;
+    background-attachment: fixed;
     background-position: bottom center;
     /*background-image : url("./homepink.jpg"); */
 
