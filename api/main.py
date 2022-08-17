@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, File, Form
 from fastapi.middleware.cors import CORSMiddleware
 from db import metadata, database, engine
 import users
@@ -20,6 +20,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.post("/images")
+async def getImage(image):
+    return {"value": image}
 @app.on_event('startup')
 async def startup():
     await database.connect()
