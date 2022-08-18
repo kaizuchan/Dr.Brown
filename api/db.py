@@ -12,7 +12,7 @@ from sqlalchemy import (
 
 from databases import Database
 
-DATABASE_URL = "mysql+pymysql://root:@localhost/test?charset=utf8mb4"
+DATABASE_URL = "mysql+pymysql://pone:con@db/ponecon?charset=utf8mb4"
 
 engine = create_engine(DATABASE_URL)
 metadata = MetaData()

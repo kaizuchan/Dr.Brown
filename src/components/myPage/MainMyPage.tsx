@@ -153,7 +153,7 @@ export default function BasicTabs() {
   };
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box sx={{ width: "100%" , height: "80vh"}}>
       <Box
         sx={{
           bgcolor: "background.paper",

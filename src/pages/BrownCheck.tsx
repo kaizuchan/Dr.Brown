@@ -28,13 +28,13 @@ const BrownCheck: NextPage = () => {
     const formData = new FormData();
     formData.append("image", image.raw);
 
-    await fetch("http://localhost:8000/images", {
-      method: "POST",
-      headers: {
-        "Content-Type": "form-data",
-      },
-      body: formData,
-    });
+    // await fetch("http://localhost:8000/images", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "form-data",
+    //   },
+    //   body: formData,
+    // });
     router.push("/BrownResult")
   };
 
