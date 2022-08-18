@@ -1,8 +1,8 @@
 from PIL import Image
 from PIL import ImageFile
-# import keras
-# import sys, os
-# import os, glob
+import keras
+import sys, os
+import os, glob
 import numpy as np
 from keras.models import load_model
 
@@ -11,7 +11,7 @@ ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 imsize = (64, 64)
 
-testpic     = "./banana.jpg" # 画像ファイルのディレクトリ
+testpic     = "./images/banana.jpg" # 画像ファイルのディレクトリ
 keras_param = "./cnn.h5"
 
 def load_image(path):
@@ -35,3 +35,5 @@ elif prelabel == 2:
     print(80)
 elif prelabel == 3:
     print(90)
+    
+os.remove("./images/banana.jpg") # imagesフォルダの画像を削除
