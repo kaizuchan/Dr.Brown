@@ -11,7 +11,10 @@ ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 imsize = (64, 64)
 
-testpic     = "./images/banana.jpg" # 画像ファイルのディレクトリ
+files = os.listdir("./images")
+img_path = "./images/"+files[0]
+
+testpic     = img_path # 画像ファイルのディレクトリ
 keras_param = "./cnn.h5"
 
 def load_image(path):
@@ -36,4 +39,4 @@ elif prelabel == 2:
 elif prelabel == 3:
     print(90)
     
-os.remove("./images/banana.jpg") # imagesフォルダの画像を削除
+os.remove(img_path) # imagesフォルダの画像を削除
